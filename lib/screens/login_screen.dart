@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       label: S.of(context).emailController,
                       child: FormContainerWidget(
                         controller: _emailController,
-                        hintText: S.of(context).emailController,
+                        hintText: "Enter your email (e.g. example@domain.com)",
                         isPasswordField: false,
                       ),
                     ),
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       label: S.of(context).passwordController,
                       child: FormContainerWidget(
                         controller: _passwordController,
-                        hintText: S.of(context).passwordController,
+                        hintText: "Password (6 digits)",
                         isPasswordField: true,
                       ),
                     ),
@@ -135,6 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: isDarkMode ? AppColors.frostWhite : AppColors.darkBlue,
                         fontWeight: FontWeight.bold,
                       ),
+
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.pushReplacementNamed(context, Routes.signUpRoute);

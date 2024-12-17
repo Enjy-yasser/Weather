@@ -32,6 +32,17 @@ class _SignupScreenState extends State<SignupScreen> {
     super.dispose();
   }
 
+  // Function to validate email
+  bool _isValidEmail(String email) {
+    // Simple regex to check if email contains "@" and ".com"
+    return email.contains('@') && email.endsWith('.com');
+  }
+
+  // Function to validate password (6 digits)
+  bool _isValidPassword(String password) {
+    return password.length == 6 && int.tryParse(password) != null;
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -66,8 +77,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     label: "Weather App Image",
                     child: Image.asset(
                       AppImages.splashScreen,
-                        height: screenWidth<600?150:screenWidth<900 ?200:250,
-                        width: screenWidth < 600 ? 150 : screenWidth < 900 ? 200 : 250,
+                      height: screenWidth < 600 ? 150 : screenWidth < 900 ? 200 : 250,
+                      width: screenWidth < 600 ? 150 : screenWidth < 900 ? 200 : 250,
                     ),
                   ),
                   ResponsiveText(
@@ -95,7 +106,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       label: S.of(context).emailController,
                       child: FormContainerWidget(
                         controller: _emailController,
-                        hintText: S.of(context).emailController,
+                        hintText: "Enter your email (e.g. example@domain.com)",
                         isPasswordField: false,
                       ),
                     ),
@@ -106,7 +117,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       label: S.of(context).passwordController,
                       child: FormContainerWidget(
                         controller: _passwordController,
-                        hintText: S.of(context).passwordController,
+                        hintText: "Password (6 digits)",
                         isPasswordField: true,
                       ),
                     ),
@@ -115,7 +126,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                      onPressed: _signUp,
+                      onPressed: () => _signUp(),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).primaryColor,
                         padding: const EdgeInsets.symmetric(
@@ -152,7 +163,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           style: AppStyles.nunito600style20.copyWith(
                             color: isDarkMode ? AppColors.frostWhite : AppColors.darkBlue,
                             fontWeight: FontWeight.bold,
-                            // decoration: TextDecoration.underline,
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
@@ -178,6 +188,20 @@ class _SignupScreenState extends State<SignupScreen> {
     try {
       String email = _emailController.text;
       String password = _passwordController.text;
+
+      // Validate email and password
+      if (!_isValidEmail(email)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Invalid email format. Please include '@' and '.com'.")),
+        );
+        return;
+      }
+      if (!_isValidPassword(password)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Password must be exactly 6 digits.")),
+        );
+        return;
+      }
 
       User? user = await _auth.signUpWithEmailAndPassword(email, password);
       if (user != null) {
