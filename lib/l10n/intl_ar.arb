@@ -1,0 +1,17 @@
+{
+  "weatherApplication" : "تطبيق الطقس",
+  "weatherForecast":"توقعات الطقس",
+  "login":"تسجيل دخول ",
+  "signUp":"قم بالتسجيل للحصول على الحساب",
+  "emailController":"تحكم البريد الإلكتروني",
+  "passwordController":"وحدة تحكم كلمة المرور",
+  "usernameController":"وحدة تحكم اسم المستخدم",
+  "haveAccount":"لديك حساب بالفعل\n",
+  "error":"خطا",
+  "noDataAvailable":"لا توجد بيانات متاحة",
+  "storagePermission":"إذن التخزين",
+  "requestPermissions":"طلب إذن",
+  "submitData":"ارسال البيانات",
+  "homePage":"الرئيسيه",
+  "searchPage":"بحث"
+}

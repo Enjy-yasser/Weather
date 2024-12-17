@@ -1,0 +1,21 @@
+{
+  "weatherApplication" : "Weather Application",
+  "weatherForecast":"Weather Forecast",
+  "login":"Login",
+  "signUp":"Sign Up",
+  "emailController":"Email Controller",
+  "passwordController":"Password Controller",
+  "usernameController":"Username Controller",
+  "haveAccount":"Already have account",
+  "error":"error",
+  "noDataAvailable":"No data available ",
+  "storagePermission":"Storage Permission",
+  "requestPermissions":"Request Permission",
+  "submitData":"Submit Data",
+  "homePage":"homepage",
+  "searchPage":"Search page"
+
+
+
+
+}

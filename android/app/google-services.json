@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1067727676484",
+    "firebase_url": "https://itss-22-default-rtdb.firebaseio.com",
+    "project_id": "itss-22",
+    "storage_bucket": "itss-22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067727676484:android:0679253a01b3a31d434811",
+        "android_client_info": {
+          "package_name": "com.example.weather_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOQZBKREmSr10qV385-hRZXnGnBM0Pwbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
