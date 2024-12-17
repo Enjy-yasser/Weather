@@ -141,11 +141,7 @@ class CustomDrawer extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    ResponsiveText(
-                      text: "App Version 1.0.0",
-                      style: theme.textTheme.bodySmall!,
-                      baseFontSize: 14,
-                    ),
+
                   ],
                 ),
               ),
