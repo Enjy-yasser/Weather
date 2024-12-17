@@ -37,18 +37,21 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.skyBlue,
+        backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.whiteColor,
         appBar: AppBar(
-          backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.cloudWhite,
+          backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.oceanBlue,
           title: Semantics(
             label: "App Bar title ${S.of(context).weatherForecast}",
-            child: Text(
-              S.of(context).weatherForecast,
+            child: ResponsiveText(
+              text:S.of(context).weatherForecast,
               style: AppStyles.nunito600style20.copyWith(
-                color: Theme.of(context).appBarTheme.titleTextStyle?.color,
-              ),
+                color: isDarkMode ? AppColors.frostWhite : AppColors.whiteColor,
+              ),baseFontSize: 20,
             ),
           ),
+          leading: IconButton(onPressed: () {
+            Navigator.pushReplacementNamed(context, Routes.signUpRoute);
+          }, icon: Icon(Icons.arrow_back, color: isDarkMode ? AppColors.whiteColor : AppColors.whiteColor,)),
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -64,14 +67,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     label: "Weather App Image",
                     child: Image.asset(
                       AppImages.splashScreen,
-                      height: 200,
-                      width: 200,
+                      height: screenWidth<600?150:screenWidth<900 ?200:250,
+                      width: screenWidth < 600 ? 150 : screenWidth < 900 ? 200 : 250,
                     ),
                   ),
                   ResponsiveText(
                     text: S.of(context).login,
-                    style: AppStyles.nunito600style20.copyWith(
-                      color: isDarkMode ? AppColors.frostWhite : AppColors.darkBlue,
+                    style: AppStyles.nunito600style20.copyWith(color: isDarkMode ? AppColors.frostWhite : AppColors.darkBlue,
                     ),
                     baseFontSize: 20,
                   ),
@@ -119,7 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           : ResponsiveText(
                         text: S.of(context).login,
                         style: AppStyles.nunito600style20.copyWith(
-                          color: AppColors.whiteColor,
+                          color: isDarkMode ? AppColors.frostWhite : AppColors.darkBlue,
                         ),
                         baseFontSize: 20,
                       ),
@@ -130,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: TextSpan(
                       text: "  ${S.of(context).signUp}",
                       style: AppStyles.nunito600style20.copyWith(
-                        color: Theme.of(context).primaryColor,
+                        color: isDarkMode ? AppColors.frostWhite : AppColors.darkBlue,
                         fontWeight: FontWeight.bold,
                       ),
                       recognizer: TapGestureRecognizer()
@@ -155,48 +157,48 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       String email = _emailController.text;
       String password = _passwordController.text;
-      if (!_isValidEmail(email)) {
-        _showErrorDialog("Invalid email format. Please include '@' and '.com'.");
-        return;
-      }
-      if (password.length < 6) {
-        _showErrorDialog("Password must be at least 6 characters long.");
-        return;
-      }
+      // if (!_isValidEmail(email)) {
+      //   _showErrorDialog("Invalid email format. Please include '@' and '.com'.");
+      //   return;
+      // }
+      // if (password.length < 6) {
+      //   _showErrorDialog("Password must be at least 6 characters long.");
+      //   return;
+      // }
 
       User? user = await _auth.signInWithEmailAndPassword(email, password);
       if (user != null) {
         Navigator.pushReplacementNamed(context, Routes.homeRoute);
       } else {
-        _showErrorDialog("Login failed. Please try again.");
+        // _showErrorDialog("Login failed. Please try again.");
       }
     } catch (e) {
-      _showErrorDialog("An error occurred: $e");
+      // _showErrorDialog("An error occurred: $e");
     } finally {
       setState(() {
         isLoggingIn = false;
       });
     }
   }
-
-  bool _isValidEmail(String email) {
-    final emailRegex = RegExp(r"^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,}");
-    return emailRegex.hasMatch(email);
-  }
-
-  void _showErrorDialog(String message) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Error"),
-        content: Text(message),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text("OK"),
-          ),
-        ],
-      ),
-    );
-  }
+  //
+  // bool _isValidEmail(String email) {
+  //   final emailRegex = RegExp(r"^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,}");
+  //   return emailRegex.hasMatch(email);
+  // }
+  //
+  // void _showErrorDialog(String message) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: const Text("Error"),
+  //       content: Text(message),
+  //       actions: [
+  //         TextButton(
+  //           onPressed: () => Navigator.pop(context),
+  //           child: const Text("OK"),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

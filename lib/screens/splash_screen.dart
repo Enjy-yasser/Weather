@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState(){
-    Future.delayed(const Duration(seconds: 4),(){
+    Future.delayed(const Duration(seconds: 6),(){
       Navigator.pushReplacementNamed(context, Routes.signUpRoute);
     });
     super.initState();
@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.skyBlue,
+      backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.whiteColor,
       body: Padding(
         padding: const EdgeInsets.only(bottom: 20),
         child: Column(
@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Semantics(
                 label: S.of(context).weatherApplication,
-              child: Text(S.of(context).weatherApplication,style:AppStyles.nunito400style18.copyWith(color: isDarkMode ? AppColors.lightningYellow : AppColors.darkBlue,
+              child: Text(S.of(context).weatherApplication,style:AppStyles.nunito400style18.copyWith(color: isDarkMode ? AppColors.whiteColor : AppColors.oceanBlue,
               fontSize: screenWidth < 600  ? 16 : screenWidth < 900 ? 18 : 20,),)),
           ],
         ),

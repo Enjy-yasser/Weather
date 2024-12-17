@@ -13,7 +13,10 @@
   "requestPermissions":"Request Permission",
   "submitData":"Submit Data",
   "homePage":"homepage",
-  "searchPage":"Search page"
+  "searchPage":"Search page",
+  "getCurrentLocation":"Get current location",
+  "downloadWeatherInfo":"Download Weather Info"
+
 
 
 

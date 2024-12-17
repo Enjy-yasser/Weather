@@ -14,6 +14,8 @@ class AppStrings{
   static const String submitData="Submit Data";
   static const String homePage="Home page";
   static const String searchPage="Search page";
+  static const String getCurrentLocation="Get current location";
+  static const String downloadWeatherInfo='Download Weather Info';
 
 
 

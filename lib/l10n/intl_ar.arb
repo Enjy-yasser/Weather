@@ -3,9 +3,9 @@
   "weatherForecast":"توقعات الطقس",
   "login":"تسجيل دخول ",
   "signUp":"قم بالتسجيل للحصول على الحساب",
-  "emailController":"تحكم البريد الإلكتروني",
-  "passwordController":"وحدة تحكم كلمة المرور",
-  "usernameController":"وحدة تحكم اسم المستخدم",
+  "emailController":" البريد الإلكتروني",
+  "passwordController":" كلمة المرور",
+  "usernameController":"اسم المستخدم",
   "haveAccount":"لديك حساب بالفعل\n",
   "error":"خطا",
   "noDataAvailable":"لا توجد بيانات متاحة",
@@ -13,5 +13,8 @@
   "requestPermissions":"طلب إذن",
   "submitData":"ارسال البيانات",
   "homePage":"الرئيسيه",
-  "searchPage":"بحث"
+  "searchPage":"بحث",
+  "getCurrentLocation":"الحصول على الموقع الحالي",
+  "downloadWeatherInfo":"تنزيل معلومات الطقس"
+
 }

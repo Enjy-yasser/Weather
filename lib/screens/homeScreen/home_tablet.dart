@@ -13,13 +13,8 @@ class HomeTablet extends StatelessWidget {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.skyBlue,
-      // appBar: AppBar(
-      //   title: Text(
-      //     S.of(context).weatherForecast,
-      //     style: Theme.of(context).textTheme.bodyMedium ?? const TextStyle(fontSize: 20),
-      //   ),
-      // ),
+      backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.whiteColor,
+
       body: LayoutBuilder(
         builder: (context, constraints) {
           final crossAxisCount = constraints.maxWidth > 900 ? 4 : 2;

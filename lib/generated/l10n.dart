@@ -199,6 +199,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Get current location`
+  String get getCurrentLocation {
+    return Intl.message(
+      'Get current location',
+      name: 'getCurrentLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download Weather Info`
+  String get downloadWeatherInfo {
+    return Intl.message(
+      'Download Weather Info',
+      name: 'downloadWeatherInfo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

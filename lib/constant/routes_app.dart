@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:weather_app/crud.dart';
-import 'package:weather_app/permission_req.dart';
 import 'package:weather_app/screens/signup_screen.dart';
 import 'package:weather_app/search.dart';
 
@@ -55,7 +54,7 @@ class Routes{
             return const HomeScreen();
           },
         );
-      case permissionRoute:
+          case searchRoute:
         return MaterialPageRoute(
           builder: (context) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -63,17 +62,7 @@ class Routes{
                   "Permission Screen loaded",TextDirection.ltr
               );
             });
-            return const PermissionReq();
-          },
-        );case searchRoute:
-        return MaterialPageRoute(
-          builder: (context) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              SemanticsService.announce(
-                  "Permission Screen loaded",TextDirection.ltr
-              );
-            });
-            return  WeatherDownloadPage();
+            return  const SearchPage();
           },
         );
 

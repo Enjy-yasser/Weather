@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   // Universal Colors
   static const whiteColor = Color(0xFFFFFFFF);
+  static const blackColor=Color(0x0000000000);
   static const darkBlue = Color(0xFF0D47A1);
 
   // Light Theme Colors

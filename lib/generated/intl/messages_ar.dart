@@ -22,9 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "downloadWeatherInfo":
+            MessageLookupByLibrary.simpleMessage("تنزيل معلومات الطقس"),
         "emailController":
-            MessageLookupByLibrary.simpleMessage("تحكم البريد الإلكتروني"),
+            MessageLookupByLibrary.simpleMessage(" البريد الإلكتروني"),
         "error": MessageLookupByLibrary.simpleMessage("خطا"),
+        "getCurrentLocation":
+            MessageLookupByLibrary.simpleMessage("الحصول على الموقع الحالي"),
         "haveAccount":
             MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل\n"),
         "homePage": MessageLookupByLibrary.simpleMessage("الرئيسيه"),
@@ -32,7 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noDataAvailable":
             MessageLookupByLibrary.simpleMessage("لا توجد بيانات متاحة"),
         "passwordController":
-            MessageLookupByLibrary.simpleMessage("وحدة تحكم كلمة المرور"),
+            MessageLookupByLibrary.simpleMessage(" كلمة المرور"),
         "requestPermissions": MessageLookupByLibrary.simpleMessage("طلب إذن"),
         "searchPage": MessageLookupByLibrary.simpleMessage("بحث"),
         "signUp": MessageLookupByLibrary.simpleMessage(
@@ -41,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إذن التخزين"),
         "submitData": MessageLookupByLibrary.simpleMessage("ارسال البيانات"),
         "usernameController":
-            MessageLookupByLibrary.simpleMessage("وحدة تحكم اسم المستخدم"),
+            MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "weatherApplication":
             MessageLookupByLibrary.simpleMessage("تطبيق الطقس"),
         "weatherForecast": MessageLookupByLibrary.simpleMessage("توقعات الطقس")

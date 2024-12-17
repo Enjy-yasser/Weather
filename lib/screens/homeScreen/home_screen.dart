@@ -6,8 +6,11 @@ import 'package:weather_app/screens/homeScreen/home_tablet.dart';
 import 'package:weather_app/screens/homeScreen/home_web.dart';
 import 'package:weather_app/widgets/drawer.dart';
 
+import '../../constant/colors_app.dart';
+import '../../constant/style_app.dart';
 import '../../generated/l10n.dart';
 import '../../model/weather_model.dart';
+import '../../responsive/responsive_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,6 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     final AppApi appApi = AppApi();
     return FutureBuilder<List<WeatherModel>>(
       future:fetchWeatherForCities(appApi) ,
@@ -43,8 +49,11 @@ class _HomeScreenState extends State<HomeScreen> {
           List<WeatherModel> weatherData = snapshot.data!;
 
           return Scaffold(
+            backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.whiteColor,
             appBar: AppBar(
-              title:  Text(S.of(context).weatherForecast),
+              title:  ResponsiveText(text:S.of(context).weatherForecast,
+                style: AppStyles.nunito600style20.copyWith(
+                color: isDarkMode ? AppColors.frostWhite : AppColors.whiteColor),baseFontSize: 20,),
             ),
             drawer: CustomDrawer(
               currentIndex: _currentIndex,

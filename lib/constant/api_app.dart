@@ -7,7 +7,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 class AppApi {
   final String appUri = 'https://api.weatherapi.com/v1/forecast.json?key=78f15b3db0ad41e6964212212241412&q=';
-
   List<String> cities = ['07112', 'London', 'New York', 'Paris', 'Cairo', 'Germany'];
 
   Future<Map<String, dynamic>> weatherApiCall(String city) async {

@@ -3,6 +3,7 @@ import 'package:weather_app/constant/api_app.dart';
 import 'package:weather_app/constant/colors_app.dart';
 import 'package:weather_app/constant/images_app.dart';
 import 'package:weather_app/constant/routes_app.dart';
+import '../constant/style_app.dart';
 import '../generated/l10n.dart';
 import '../responsive/responsive_text.dart';
 
@@ -34,7 +35,7 @@ class CustomDrawer extends StatelessWidget {
       );
     }
 
-    Color drawerBackgroundColor = isDarkMode ? AppColors.stormyGrey : AppColors.skyBlue;
+    Color drawerBackgroundColor = isDarkMode ? AppColors.stormyGrey : AppColors.whiteColor;
 
     return SafeArea(
       child: Drawer(
@@ -45,7 +46,7 @@ class CustomDrawer extends StatelessWidget {
               // Drawer Header
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: isDarkMode ? AppColors.nightBlue : AppColors.cloudWhite,
+                  color: isDarkMode ? AppColors.nightBlue : AppColors.oceanBlue,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +55,8 @@ class CustomDrawer extends StatelessWidget {
                       height: 20,
                       child: ResponsiveText(
                         text: S.of(context).weatherApplication,
-                        style: theme.textTheme.bodyMedium!,
+                        style: AppStyles.nunito600style20.copyWith(
+                      color: isDarkMode ? AppColors.frostWhite : AppColors.whiteColor),
                         baseFontSize: 24,
                       ),
                     ),
@@ -66,28 +68,19 @@ class CustomDrawer extends StatelessWidget {
                 leading: const Icon(Icons.home),
                 title: ResponsiveText(
                   text: S.of(context).homePage,
-                  style: theme.textTheme.bodyMedium!,
+                  style: AppStyles.nunito600style20.copyWith(
+                      color: isDarkMode ? AppColors.frostWhite : Colors.black),
                   baseFontSize: 16,
                 ),
                 selected: currentIndex == 0,
                 onTap: () => onTap?.call(0),
               ),
-              ListTile(
-                leading: const Icon(Icons.settings),
-                title: ResponsiveText(
-                  text: S.of(context).requestPermissions,
-                  style: theme.textTheme.bodyMedium!,
-                  baseFontSize: 16,
-                ),
-                onTap: () {
-                  // Navigate to the PermissionReq page
-                  Navigator.pushReplacementNamed(context,Routes.permissionRoute);
-                },
-              ),ListTile(
+             ListTile(
                 leading: const Icon(Icons.report),
                 title: ResponsiveText(
                   text: S.of(context).submitData,
-                  style: theme.textTheme.bodyMedium!,
+                  style: AppStyles.nunito600style20.copyWith(
+                      color: isDarkMode ? AppColors.frostWhite : Colors.black),
                   baseFontSize: 16,
                 ),
                 onTap: () {
@@ -98,7 +91,8 @@ class CustomDrawer extends StatelessWidget {
                 leading: const Icon(Icons.search),
                 title: ResponsiveText(
                   text: S.of(context).searchPage,
-                  style: theme.textTheme.bodyMedium!,
+                  style: AppStyles.nunito600style20.copyWith(
+                      color: isDarkMode ? AppColors.frostWhite : Colors.black),
                   baseFontSize: 16,
                 ),
                 onTap: () {

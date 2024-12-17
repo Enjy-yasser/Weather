@@ -13,14 +13,8 @@ class HomeWeb extends StatelessWidget {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.skyBlue,
-      // appBar: AppBar(
-      //   backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.cloudWhite,
-      //   title: Text(
-      //     S.of(context).weatherForecast,
-      //     style: Theme.of(context).appBarTheme.titleTextStyle,
-      //   ),
-      // ),
+      backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.whiteColor,
+
       body: LayoutBuilder(
         builder: (context, constraints) {
           final crossAxisCount = constraints.maxWidth > 1400 ? 6 : 4;

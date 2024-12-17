@@ -11,16 +11,11 @@ class HomeMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.skyBlue,
-      // appBar: AppBar(
-      //   backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.cloudWhite,
-      //   title: Text(
-      //     S.of(context).weatherForecast,
-      //     style: Theme.of(context).appBarTheme.titleTextStyle,
-      //   ),
-      // ),
+      backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.whiteColor,
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(
@@ -48,8 +43,8 @@ class HomeMobile extends StatelessWidget {
                     Center(
                       child: Image.network(
                         "https:${weather.conditionIcon}",
-                        width: 64,
-                        height: 64,
+                        height: screenWidth<600?150:screenWidth<900 ?200:250,
+                        width: screenWidth < 600 ? 150 : screenWidth < 900 ? 200 : 250,
                       ),
                     ),
                     const SizedBox(height: 10),

@@ -39,16 +39,16 @@ class _SignupScreenState extends State<SignupScreen> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.skyBlue,
+        backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.whiteColor,
         appBar: AppBar(
-          backgroundColor: isDarkMode ? AppColors.nightBlue : AppColors.cloudWhite,
+          backgroundColor: isDarkMode ? AppColors.stormyGrey : AppColors.oceanBlue,
           title: Semantics(
             label: "App Bar title ${S.of(context).weatherForecast}",
-            child: Text(
-              S.of(context).weatherForecast,
+            child: ResponsiveText(
+              text: S.of(context).weatherForecast,
               style: AppStyles.nunito600style20.copyWith(
-                color: Theme.of(context).appBarTheme.titleTextStyle?.color,
-              ),
+                color: isDarkMode ? AppColors.frostWhite : AppColors.whiteColor,
+              ), baseFontSize: 20,
             ),
           ),
         ),
@@ -66,8 +66,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     label: "Weather App Image",
                     child: Image.asset(
                       AppImages.splashScreen,
-                      height: 200,
-                      width: 200,
+                        height: screenWidth<600?150:screenWidth<900 ?200:250,
+                        width: screenWidth < 600 ? 150 : screenWidth < 900 ? 200 : 250,
                     ),
                   ),
                   ResponsiveText(
