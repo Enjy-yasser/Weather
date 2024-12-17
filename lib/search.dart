@@ -21,7 +21,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final AppApi _appApi = AppApi(); // Correct reference to the API handler class
+  final AppApi _appApi = AppApi();  
   final WeatherDownloader _weatherDownloader = WeatherDownloader();
 
   String? _weatherInfo;
@@ -108,37 +108,61 @@ class _SearchPageState extends State<SearchPage> {
           Navigator.pushReplacementNamed(context, Routes.homeRoute);
         }, icon: const Icon(Icons.arrow_back,color: Colors.black,)),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ElevatedButton(
-                onPressed: _getCurrentLocationWeather,
-                child: ResponsiveText(text: S.of(context).getCurrentLocation,
-                  style: AppStyles.nunito600style20.copyWith(
-                      color: isDarkMode ? AppColors.frostWhite : Colors.black),
-                  baseFontSize: 20,),
-
-              ),
-              if (_weatherInfo != null) ...[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: ResponsiveText(
-                    text:_weatherInfo!,
-                    style: AppStyles.nunito600style20.copyWith(
-                        color: isDarkMode ? AppColors.frostWhite : Colors.black),baseFontSize: 20,
-                  ),
-                ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth < 600 ? 16 : 32,
+          ),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 ElevatedButton(
-                  onPressed: _downloadWeatherInfo,
-                  child:  ResponsiveText(text:S.of(context).downloadWeatherInfo,style: AppStyles.nunito600style20.copyWith(
-                      color: isDarkMode ? AppColors.frostWhite : Colors.black),baseFontSize: 20,
+                  onPressed: _getCurrentLocationWeather,
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth < 600 ? 20 : 40,
+                      vertical: screenWidth < 600 ? 10 : 20,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    backgroundColor: Theme.of(context).primaryColor,
                   ),
+                  child: ResponsiveText(text: S.of(context).getCurrentLocation,
+                    style: AppStyles.nunito600style20.copyWith(
+                        color: isDarkMode ? AppColors.frostWhite : Colors.black),
+                    baseFontSize: 20,),
+        
                 ),
+                if (_weatherInfo != null) ...[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: ResponsiveText(
+                      text:_weatherInfo!,
+                      style: AppStyles.nunito600style20.copyWith(
+                          color: isDarkMode ? AppColors.frostWhite : Colors.black),baseFontSize: 20,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: _downloadWeatherInfo,
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth < 600 ? 20 : 40,
+                        vertical: screenWidth < 600 ? 10 : 20,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
+                    child:  ResponsiveText(text:S.of(context).downloadWeatherInfo,style: AppStyles.nunito600style20.copyWith(
+                        color: isDarkMode ? AppColors.frostWhite : Colors.black),baseFontSize: 20,
+                    ),
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),

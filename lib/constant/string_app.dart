@@ -16,9 +16,10 @@ class AppStrings{
   static const String searchPage="Search page";
   static const String getCurrentLocation="Get current location";
   static const String downloadWeatherInfo='Download Weather Info';
-
-
-
+  static const String logout='logout';
+  static const String yes='yes';
+  static const String cancel='cancel';
+  static const String logoutSta="Are you sure you want to log out?";
 
 
 

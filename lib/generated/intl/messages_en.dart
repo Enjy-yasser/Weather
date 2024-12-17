@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
         "downloadWeatherInfo":
             MessageLookupByLibrary.simpleMessage("Download Weather Info"),
         "emailController":
@@ -33,6 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have account"),
         "homePage": MessageLookupByLibrary.simpleMessage("homepage"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "logout": MessageLookupByLibrary.simpleMessage("logout"),
+        "logoutSta": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to log out?"),
         "noDataAvailable":
             MessageLookupByLibrary.simpleMessage("No data available "),
         "passwordController":
@@ -49,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "weatherApplication":
             MessageLookupByLibrary.simpleMessage("Weather Application"),
         "weatherForecast":
-            MessageLookupByLibrary.simpleMessage("Weather Forecast")
+            MessageLookupByLibrary.simpleMessage("Weather Forecast"),
+        "yes": MessageLookupByLibrary.simpleMessage("yes")
       };
 }

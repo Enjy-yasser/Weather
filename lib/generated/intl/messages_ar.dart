@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
         "downloadWeatherInfo":
             MessageLookupByLibrary.simpleMessage("تنزيل معلومات الطقس"),
         "emailController":
@@ -33,6 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل\n"),
         "homePage": MessageLookupByLibrary.simpleMessage("الرئيسيه"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل دخول "),
+        "logout": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
+        "logoutSta": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد من أنك تريد تسجيل الخروج؟"),
         "noDataAvailable":
             MessageLookupByLibrary.simpleMessage("لا توجد بيانات متاحة"),
         "passwordController":
@@ -48,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "weatherApplication":
             MessageLookupByLibrary.simpleMessage("تطبيق الطقس"),
-        "weatherForecast": MessageLookupByLibrary.simpleMessage("توقعات الطقس")
+        "weatherForecast": MessageLookupByLibrary.simpleMessage("توقعات الطقس"),
+        "yes": MessageLookupByLibrary.simpleMessage("نعم")
       };
 }

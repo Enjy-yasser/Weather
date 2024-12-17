@@ -87,7 +87,8 @@ class CustomDrawer extends StatelessWidget {
                   // Navigate to the PermissionReq page
                   Navigator.pushReplacementNamed(context,Routes.crudRoute);
                 },
-              ),ListTile(
+              ),
+              ListTile(
                 leading: const Icon(Icons.search),
                 title: ResponsiveText(
                   text: S.of(context).searchPage,
@@ -98,6 +99,18 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   // Navigate to the PermissionReq page
                   Navigator.pushReplacementNamed(context,Routes.searchRoute);
+                },
+              ),ListTile(
+                leading: const Icon(Icons.logout),
+                title: ResponsiveText(
+                  text: S.of(context).logout,
+                  style: AppStyles.nunito600style20.copyWith(
+                      color: isDarkMode ? AppColors.frostWhite : Colors.black),
+                  baseFontSize: 16,
+                ),
+                onTap: () {
+                  // Navigate to the PermissionReq page
+                  Navigator.pushReplacementNamed(context,Routes.logoutRoute);
                 },
               ),
               Padding(

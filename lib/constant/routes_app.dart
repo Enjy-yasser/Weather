@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:weather_app/crud.dart';
+import 'package:weather_app/screens/homeScreen/logout.dart';
 import 'package:weather_app/screens/signup_screen.dart';
 import 'package:weather_app/search.dart';
 
@@ -18,6 +19,7 @@ class Routes{
   static const String permissionRoute = '/permission';
   static const String crudRoute = '/crud';
   static const String searchRoute = '/search';
+  static const String logoutRoute = '/logout';
 
   static Route? getRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -63,6 +65,17 @@ class Routes{
               );
             });
             return  const SearchPage();
+          },
+        );
+        case logoutRoute:
+        return MaterialPageRoute(
+          builder: (context) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              SemanticsService.announce(
+                  "Logout loaded",TextDirection.ltr
+              );
+            });
+            return  const LogoutScreen();
           },
         );
 

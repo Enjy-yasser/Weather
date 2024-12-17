@@ -15,7 +15,11 @@
   "homePage":"homepage",
   "searchPage":"Search page",
   "getCurrentLocation":"Get current location",
-  "downloadWeatherInfo":"Download Weather Info"
+  "downloadWeatherInfo":"Download Weather Info",
+  "logout":"logout",
+  "logoutSta":"Are you sure you want to log out?",
+  "yes":"yes",
+  "cancel":"cancel"
 
 
 
